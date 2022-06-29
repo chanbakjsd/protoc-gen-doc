@@ -2,7 +2,6 @@ package doc
 
 import (
 	"fmt"
-	"os"
 	"strings"
 )
 
@@ -74,12 +73,10 @@ func resolveRef(pkgs []*Package, ref *Ref) Type {
 		if !strings.HasPrefix(ref.Name, prefix) {
 			continue
 		}
-		fmt.Fprintln(os.Stderr, pkg.ID+" GOOD")
 		keys := make([]string, 0)
 		for k := range pkg.Types {
 			keys = append(keys, k)
 		}
-		fmt.Fprintln(os.Stderr, "Keys:", keys)
 	}
 	panic("ref type not found: " + ref.Name)
 }

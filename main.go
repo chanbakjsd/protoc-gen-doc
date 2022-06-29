@@ -37,6 +37,7 @@ func run(p *protogen.Plugin) error {
 			genPkgs = append(genPkgs, pkgs[i])
 		}
 	}
+	doc.PruneTypes(genPkgs)
 	tags, err := generate.Tags(cfg, genPkgs)
 	if err != nil {
 		return err
